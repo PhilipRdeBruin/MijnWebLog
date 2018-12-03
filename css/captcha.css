@@ -1,0 +1,53 @@
+
+#captcha {
+    margin  : auto;
+    width   : 400px;
+    height  : 250px;
+    padding : 25px 5px 5px 5px;
+    border  : 1px black #bbb;
+}
+
+.captchablock {
+    float   : left;
+    width   : 101px;
+    height  : 80px;
+    border  : 1px #ddd solid;
+}
+
+.captchablock img {
+    width   : 100px;
+    height  : 80px;
+}
+
+#captchatest {
+    margin  : auto;
+    width   : 25%;
+    height  : 250px;
+    padding : 25px 5px 5px 5px;
+    border  : 1px black #bbb;
+}
+
+#pcaptcha {
+    font-size   : 13px;
+    color       : #036;
+}
+
+#fotoid {
+    display     : none;
+}
+
+#voorbeeldfoto {
+    margin-left : -30px;
+}
+
+#voorbeeldfoto img {
+    width   : 150px;
+    height  : auto;
+}
+
+#voorbeeldfoto p {
+    margin-top  : 0px;
+    width       : 150px;
+    text-align  : center;
+    color       : #666;
+}

@@ -1,0 +1,381 @@
+
+/*  Algemeen  */
+.black {
+	color   : black;
+}
+
+.blank {
+	color	: #eee;
+}
+
+.darkblue {
+	color	: #16365c;
+}
+
+.fout{
+	color			: red;
+	text-decoration	: line-through;
+}
+
+.dgrey12 {
+	color		: #555;
+	font-size	: 12px;
+}
+
+.dgrey14 {
+	color		: #555;
+	font-size	: 14px;
+}
+
+.grey {
+	color	: #ccc;
+}
+
+.lgrey {
+	color	: #ddd;
+}
+
+.px12 {
+	font-size	: 12px;
+}
+
+.px14 {
+	font-size	: 14px;
+}
+
+/* Style the nav elements */
+
+#ahome {
+	padding	: 2px 20px 2px 20px;
+}
+
+#ainlog {
+	padding	: 2px 30px 2px 30px;
+}
+
+#aplaatsen {
+	padding	: 2px 10px 2px 10px;
+}
+
+#auitlog {
+	padding	: 2px 28px 2px 28px;
+}
+
+#filterauteur {
+	margin-left	: -4px;
+	padding		: 2px 10px 2px 10px;
+	color 		: #555;
+}
+
+#filterknop {
+	margin-left		: 2.5%;
+	width			: 47.5%;
+}
+
+#filterresetknop {
+	margin-left		: -2.5%;
+	width			: 47.5%;
+}
+
+#filterrubriek {
+	padding		: 2px 10px 2px 10px;
+	color		: #036;
+}
+
+#filterauteur, #filterrubriek {
+	background		: -moz-linear-gradient(#eee, #bbb);
+	background		: -webkit-linear-gradient(#eee, #bbb);
+	background		: -ms-linear-gradient(#eee, #bbb);
+	background		: -o-linear-gradient(#eee, #bbb);
+	border			: 1px #aaa solid;
+	border-radius	: 5px 15px 0px 0px;
+}
+
+#filterknop, #filterresetknop {
+	border			: 1px #aaa solid;
+}
+
+#filterknop, #filterresetknop, nav a {
+	padding			: 2px 25px 2px 25px;
+	font-size		: 12px;
+	text-decoration	: none;
+	background		: -moz-linear-gradient(#eee, #bbb);
+	background		: -webkit-linear-gradient(#eee, #bbb);
+	background		: -ms-linear-gradient(#eee, #bbb);
+	background		: -o-linear-gradient(#eee, #bbb);
+	border-radius	: 5px;
+}
+
+nav a {
+	margin-left		: 15%;
+	color			: #036;
+	border			: 1px #036 solid;
+}
+
+#filterauteur:hover, #filterrubriek:hover, #filterknop:hover, #filterresetknop:hover, nav a:hover {
+	background	: -moz-linear-gradient(#bbb, #eee);
+	background	: -webkit-linear-gradient(#bbb, #eee);
+	background	: -ms-linear-gradient(#bbb, #eee);
+	background	: -o-linear-gradient(#bbb, #eee);
+}
+
+#filterknop:hover, #filterresetknop:hover {
+	color	: #036;
+}
+
+#filterenauteur, #filterenrubriek {
+	min-height		: 210px;
+	border			: 1px solid #999;
+	border-radius	: 0 0 7px 7px;
+}
+
+#filterenauteur {
+	display: none;
+}
+
+#filterenrubriek {
+	display: block;
+}
+
+#select_filterrubriek {
+	margin: 0px; auto; auto; 5%;
+	width: 100%;
+	padding: 5px;
+	height: 198px;
+	font-size: 12px;
+	background-color: #ccc;
+	border-style: none;
+}
+
+#select_filterrubriek option:hover {
+	color		: white;
+	background	: #999;
+}
+
+#standaarknoppen {
+	min-height	: 150px;
+}
+
+/* Style the section elements */
+/* Style the overzichtstabel */
+
+.overzicht {
+	margin		: auto;
+	width		: 90%;
+	max-height	: 200px;
+	overflow	: scroll;
+}
+
+.overzichtheader {
+	margin		: auto;
+	width		: 90%;
+	margin-top	: 25px;
+}
+
+#overzichtstabel, #overzichtstabelheader {
+	min-width	: 100%;
+	font-size	: 14px;
+}
+
+#overzichtstabelheader th {
+	text-align	: left;
+	background	: #bbb;
+}
+
+#regel1 {
+	background	: #e8e8e8;
+}
+
+#regel2 {
+	background	: #cacaca;
+}
+
+
+#sortrubriek, #sortauteur, #sortonderwerp, #sortgeplaatst {
+	margin		: auto;
+	font-size	: 12px;
+	text-align	: left;
+	background	: #bbb;
+	opacity		: 0.25;
+}
+
+#sortgeplaatst {
+	opacity		: 1;
+}
+
+/* Style the berichtentabel */
+.artikelen {
+	margin		: auto;
+	width		: 90%;
+	padding    	: 5px 20px 5px 20px;
+	font-size	: 14px
+}
+
+#berichtinp {
+	margin-left	: 42.5%;
+}
+
+#berichtentabel{
+	margin-top		: 30px;
+	vertical-align	: text-top;
+}
+
+.berknoppen {
+	min-width		: 100px;
+	background		: #abf;
+	font-size		: 14px;
+	background		: -moz-linear-gradient(#eee, #69c);
+	background		: -webkit-linear-gradient(#eee, #69c);
+	background		: -ms-linear-gradient(#eee, #69c);
+	background		: -o-linear-gradient(#eee, #69c);
+	border			: 1px #69c solid;
+	border-radius	: 5px;
+}
+
+.berknoppen:hover {
+/*	text-decoration	:  strong;  */
+	background	: #ffdd3b;
+	background		: -moz-linear-gradient(#ffbe59, #ffecc6);
+	background		: -webkit-linear-gradient(#ffbe59, #ffecc6);
+	background		: -ms-linear-gradient(#ffbe59, #ffecc6);
+	background		: -o-linear-gradient(#ffbe59, #ffecc6);
+	border			: 1px #ffbe59 solid;
+}
+
+#btblcelb {
+	padding			: 5px 20px 10px 10px;
+	text-align		: justify;
+	border-right	: 1px #ccc solid;
+}
+
+#btblcelx {
+	padding			: 5px 20px 10px 10px;
+	background		: #ddd;
+	vertical-align	: top;
+	border-bottom	: 1px #ddd solid;
+}
+
+#btblrij1 {
+	background	: #aaa;
+}
+
+.btblrij1 {
+	padding		: 3px 20px 3px 10px;
+}
+
+#btblrijz {
+	background		: #ddd;
+	text-align		: center;
+	border-top: 	: 1px #ddd solid;
+	border-bottom	: 1px #aaa solid;
+}
+
+/* Style the aside elements */
+aside img {
+	margin-left	: 5px;
+	max-width	: 300px;
+	height		: auto;
+}
+
+aside p {
+	text-align		: justify;
+	padding-right	: 20px;
+}
+
+/* Style the footer elements */
+#adres {
+	padding-top		: 0.2%;
+	padding-bottom	: 0.2%;
+}
+
+#adres, #contact, #email, #telefoon {
+	float			: left;
+	width			: 24.9%;
+	padding-left	: 5%;
+}
+
+#contact {
+	padding-top	: 0.35%;
+}
+
+#contact td {
+	color	: #777;
+}
+
+#contactknop {
+	width			: 80%;
+	padding			: 1%;
+	color			: white;
+	background		: #777;
+	border			: 1px solid #777;
+	text-decoration	: underline;
+	cursor			: pointer;
+	font-size		: 16px;
+}
+
+#contactknop:hover, #email a:hover {
+	color	: #900;
+}
+
+#contactknop:visited, #email a:visited {
+	color	: #c6f;
+}
+
+#email a:link {
+	color	: white;
+}
+
+#email, #telefoon {
+	padding-top	: 1%;
+}
+
+/* Styling the Plaatsen site */
+
+.px12 {
+	font-size	: 12px;
+}
+
+/* Styling the Inlog site */
+#inlogform, #registreren {
+	margin		: auto;
+	width		: 75%;
+	padding    	: 5px 20px 5px 20px;
+	font-size	: 14px
+}
+
+#aanmaken_acct:hover, #berichtinp:hover, #login:hover, #registerknop:hover {
+/*	text-decoration	:  strong;  */
+	background		: #ffdd3b;
+	border-radius	: 5px;
+}
+
+#registratieknop {
+	margin	: auto;
+	width	: 30%;
+	padding	: 5px;
+}
+
+#registreren {
+	padding-top	: 15%;
+}
+
+#registreren p {
+	margin		: auto;
+	width		: 75%;
+	padding    	: 5px;
+	text-align	: center;
+	color		: #036;
+}
+
+/* Styling the Plaatsen site */
+#trnieuwerubriek {
+	visibility	: hidden;
+}
+
+#xwoorden {
+	margin		: 5px 0px 50px 0px;
+	width		: 75%;
+	padding		: 5px;
+	background	: #ffa;
+	border		: 1px #900 solid;
+}
