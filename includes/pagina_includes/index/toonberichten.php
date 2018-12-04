@@ -10,8 +10,32 @@
 //        }
 //        $filterstring = "";
 //    }
+
+//    phpAlert ("zoektermen = $zoektermen");
+
+    $zoekstring = "";
+    if ($zoektermen != "" && $zoekreset == "") {
+        $zoektermen = trim (str_ireplace (",", " ", $zoektermen));
+        $zoektermen = trim (str_ireplace (";", " ", $zoektermen));
+        $zoektermen = trim (str_ireplace (":", " ", $zoektermen));
+        $zoek_arr = explode (" ", $zoektermen);
+        for ($i = 0; $i < count ($zoek_arr); $i++) {
+            if ($zoek_arr[$i] != "") {
+                $zoekindex = " onderwerp LIKE '%$zoek_arr[$i]%' OR verhaal LIKE '%$zoek_arr[$i]%'";
+                $zoekstring = $zoekstring . " OR " . $zoekindex;
+            }
+        }
+        if ($zoekstring != "") { $zoekstring = " AND (" . substr ($zoekstring, 4) . ")"; }
+//        phpAlert ("zoekstring = $zoekstring");
+    }
+
+
+
+
     if (isset($_POST['filterknop']) || isset($_SESSION['filterknop'])) {
         if (isset($_POST['filterknop'])) { $_SESSION['filterknop'] = $_POST['filterknop']; }
+
+
 
         $conn = dbconnect ("sqli");
         $sql = "SELECT rubriek_naam FROM rubrieken ORDER BY rubriek_naam";
@@ -32,7 +56,10 @@
                 $filterstring = $filterstring . " OR rubriek_naam = '" . $kolomnaam . "'";
             }
         }
-        if ($filterstring != "") { $filterstring = " WHERE " . substr ($filterstring, 4); }
+
+        if ($filterstring != "") { $filterstring = " AND (" . substr ($filterstring, 4) . ")"; }
+
+//        phpAlert ("filterstring = $filterstring");
 
         dbdisconnect ("sqli", $conn);
     }

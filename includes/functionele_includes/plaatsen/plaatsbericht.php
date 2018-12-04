@@ -13,8 +13,8 @@
     dbdisconnect ("sqli", $conn);
 
     if (trim($id) == "") {
-        $sql = "INSERT INTO berichten2 (onderwerp, auteur_id, geplaatst, gewijzigd) " .
-              "VALUES ('$onderwerp', '$gebruikerid', '$tijd', '$tijd');";
+        $sql = "INSERT INTO berichten2 (onderwerp, auteur_id, verhaal, geplaatst, gewijzigd) " .
+              "VALUES ('$onderwerp', '$gebruikerid', $bericht, '$tijd', '$tijd');";
         $conn->query($sql);
         dbdisconnect ("sqli", $conn);
 

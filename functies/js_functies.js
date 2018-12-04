@@ -32,6 +32,15 @@ function set_filterdata(i) {
 }
 
 
+//$(function() {
+//	$("#zoekreset").click(function() {
+//        zoekresetknop = document.getElementById("zoekresetknop");
+//        zoekresetknop.value = true;
+//	});
+//});
+
+
+
 $(function() {
 	$("#nieuwerubriek").mouseup(function() {
         tabelrij = document.getElementById("trnieuwerubriek");

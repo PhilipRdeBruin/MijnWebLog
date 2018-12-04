@@ -42,7 +42,7 @@
         $filtertypenieuw = (isset($_POST['filtertype']) ? $_POST['filtertype'] : $filtertypeoud);
 //        phpAlert ("flttypeoud = $filtertypeoud, flttypenw = $filtertypenieuw");
         $filterstring = "";
-        if (isset($_POST['filterresetknop'])) {
+        if (isset($_POST['filterresetknop']) || isset($_POST['zoekresetknop'])) {
             if (isset ($_SESSION['filterknop'])) {
                 unset ($_SESSION['filterknop']);
                 unsetsessiefilters("rubrieken");

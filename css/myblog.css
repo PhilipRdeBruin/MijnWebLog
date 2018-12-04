@@ -329,6 +329,17 @@ aside p {
 	padding-top	: 1%;
 }
 
+#loepbox, #resetbox, #zoekterm {
+	float: left;
+	margin-top	: 0px;
+}
+
+#loep, #zoekreset {
+	margin		: 0px 3px 0px 12px;
+	height		: 30px;
+	width		: auto;
+}
+
 /* Styling the Plaatsen site */
 
 .px12 {

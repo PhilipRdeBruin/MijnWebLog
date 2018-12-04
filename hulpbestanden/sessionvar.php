@@ -18,11 +18,13 @@
 	    $dirschr = issessie ('auteur');
 	    $dirondw = issessie ('onderwerp');
 	    $dirtijd = issessie ('geplaatst');
+		$zoektermen = ispost ('zoekterm');
+		$zoekreset = ispost('zoekreset');
+//		phpalert ("zoekreset = $zoekreset");
 	    $arubr = "&#9650;"; $aschr = "&#9650;";
 		$aondw = "&#9650;"; $atijd = "&#9660;";
 		$hrubr = "black"; $hschr = "black";
 		$hondw = "black"; $htijd = "black";
-		$zoektermen = "";
 		break;
 	case 'inlog':
 		$voornaam = ispost ('voornaam');
