@@ -21,15 +21,45 @@
         echo '    <tr>';
         echo '        <td id="btblrijz" colspan="2"><i>laatst gewijzigd:   ' . $tdupd[$j] . '</i></td>';
         echo '    </tr>';
+
         if ($naam == $nm[$j]) {
             echo '<tr>';
             echo '    <form action="#" method="post">';
             echo '        <td><input type="submit" class = "berknoppen" name="delbericht' . $id[$j] . '" value="verwijder"></td>';
-                      // alternatief: 2 formulieren, updbericht: action="plaatsen.php"
+                      // alternatief:  2 formulieren, updbericht: action="plaatsen.php"
             echo '        <td><input type="submit" class = "berknoppen" name="updbericht' . $id[$j] . '" value="wijzig"></td>';
             echo '    </form>';
             echo '</tr>';
+        } elseif ($naam != "") {
+            echo '<tr>';
+            echo '    <form action="#" method="post">';
+            echo '        <td></td><td><input type="submit" class = "commknoppen" name="commentaar' . $id[$j] . '" value="schrijf een reactie op dit bericht"></td>';
+            echo '    </form>';
+            echo '</tr>';
         }
+
+
+        $conn = dbconnect("sqli");
+        $sql = "SELECT c.anoniem, c.commentaar, c.commentgeplaatst, g.voornaam, g.tussenv, g.achternaam
+                FROM commentaar c
+                INNER JOIN gebruikers g ON c.commentator_id = g.gebr_id
+                WHERE c.bericht_id = '$id[$j]' ORDER BY commentgeplaatst DESC;";
+
+        $result = $conn->query($sql);
+        foreach ($result as $row) {
+            $anoniem = $row['anoniem'];
+            $tv = ($row['tussenv'] != "") ? " " . $row['tussenv'] : "";
+            $commentator = $row['voornaam'] . $tv . " " . $row['achternaam'];
+            $commentator = ($anoniem == 1) ? "<i>anoniem</>" : $commentator; 
+            $commentaar = $row['commentaar'];
+            $tijd = $row['commentgeplaatst'];
+
+            echo "<tr><td id='commentrij1' colspan='2'>commentaar van: $commentator   <i>($tijd)</i></td></tr>";
+            echo "<tr><td id='commentrij2' colspan='2'>$commentaar</td></tr>";
+
+        }
+        dbdisconnect ("sqli", $conn);
+
         echo '</table>';
     }
 ?>

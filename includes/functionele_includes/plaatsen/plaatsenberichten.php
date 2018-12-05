@@ -2,6 +2,8 @@
 <?php
 
 	$chkblock = false;
+	$berichtaanhef = "Nieuw bericht van $naam";
+	$berichtcommentaar = "Bericht";
 //    $id = ispost('id');
 //    $onderwerp = ispost('onderwerp');
 //    $rubriek = ispost('rubriek');
@@ -16,6 +18,8 @@
     } else {
     	if (isset($_SESSION['update'])) {
             include 'includes/functionele_includes/plaatsen/wijzigbericht.php';
+		} elseif (isset($_SESSION['commentaar'])) {
+            include 'includes/functionele_includes/plaatsen/commentaar.php';
     	} elseif ($naam != "") {
             $berichtknop = "Plaats bericht";
             include 'includes/pagina_includes/plaatsen/plaatsenmag.php';

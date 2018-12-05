@@ -1,7 +1,7 @@
 
 <div class="berichten">
     <form id="berichtform" action="#" method="post">
-        <h4><u>Nieuw bericht van <?php echo $naam;?></u></h4>
+        <h4 id="berichttype"><u><?php echo $berichtaanhef;?></u></h4>
         <table>
             <tr><td width="250">Onderwerp: <super>*</super></td><td><input required type="text" id="onderwerp" name="onderwerp" value= '<?php echo $onderwerp; ?>'></td></tr>
             <tr><td>Rubriek: <super>*</super></td><td>
@@ -24,12 +24,19 @@
             echo '<div id="xwoorden">' . $berichtx . '</div>';
         }
     ?>
-        <p><u>Bericht:</u> <super>*</super></p>
+        <p><u><?php echo $berichtcommentaar ?>:</u> <super>*</super></p>
         <?php if ($berichtknop == "Plaats bericht") { $id = ""; } ?>
         <input type="hidden" name="id" value=" <?php echo $id; ?> ">
         <textarea id="bericht" name="bericht" rows="16" cols="80"><?php echo $bericht; ?></textarea><br/><br/>
         <input type="submit" id="berichtinp" value="<?php echo $berichtknop; ?>">
         <input type="hidden" id="berichtinphidden" value=" <?php echo $berichtknop; ?> ">
+<?php
+        $comment = issessie('commentaar');
+        if ($comment == true) {
+            echo '<span>&nbsp&nbsp&nbsp&nbsp&nbsp</span>';
+            echo '<input type="checkbox" name="anoniemcomm" value="false"> <span id="anoniemcomm"><i>Ik wil anoniem blijven</i></span>';
+        }
+?>
     </form>
     <br/>
     <p class="px12"><super>*</super>  <i>verplicht veld</i></p>

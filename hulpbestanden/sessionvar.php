@@ -12,6 +12,8 @@
 
 	switch ($site) {
 	case 'index':
+		unset ($_SESSION['update']);
+		unset ($_SESSION['commentaar']);
 		$sortkey = issessie ('sortkey');
 	    $sortdir = issessie ('sortdir');
 	    $dirrubr = issessie ('rubriek');

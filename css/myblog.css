@@ -212,7 +212,12 @@ nav a {
 }
 
 #berichtinp {
-	margin-left	: 42.5%;
+	margin-left	: 27.5%;
+}
+
+#anoniemcomm {
+	font-size	: 14px;
+	color		: #444;
 }
 
 #berichtentabel{
@@ -234,7 +239,7 @@ nav a {
 
 .berknoppen:hover {
 /*	text-decoration	:  strong;  */
-	background	: #ffdd3b;
+	background		: #ffdd3b;
 	background		: -moz-linear-gradient(#ffbe59, #ffecc6);
 	background		: -webkit-linear-gradient(#ffbe59, #ffecc6);
 	background		: -ms-linear-gradient(#ffbe59, #ffecc6);
@@ -268,6 +273,42 @@ nav a {
 	text-align		: center;
 	border-top: 	: 1px #ddd solid;
 	border-bottom	: 1px #aaa solid;
+}
+.commknoppen {
+	margin-left		: 6%;
+	min-width		: 100px;
+	background		: #abf;
+	font-size		: 14px;
+	background		: -moz-linear-gradient(#eee, #999);
+	background		: -webkit-linear-gradient(#eee, #999);
+	background		: -ms-linear-gradient(#eee, #999);
+	background		: -o-linear-gradient(#eee, #999);
+	border			: 1px #999 solid;
+	border-radius	: 5px;
+}
+
+.commknoppen:hover {
+/*	text-decoration	:  strong;  */
+	background		: #ffdd3b;
+	background		: -moz-linear-gradient(#ffbe59, #ffecc6);
+	background		: -webkit-linear-gradient(#ffbe59, #ffecc6);
+	background		: -ms-linear-gradient(#ffbe59, #ffecc6);
+	background		: -o-linear-gradient(#ffbe59, #ffecc6);
+	border			: 1px #ffbe59 solid;
+}
+
+#commentrij1 {
+	padding			: 2px 20px 2px 10px;
+	background		: #ccc;
+	text-align		: center;
+	border			: 1px solid #ccc;
+	border-radius	: 10px 10px 0px 0px;
+}
+
+#commentrij2 {
+	padding			: 2px 20px 2px 10px;
+	border			: 1px solid #ccc;
+	border-radius	: 0px 0px 10px 10px;
 }
 
 /* Style the aside elements */

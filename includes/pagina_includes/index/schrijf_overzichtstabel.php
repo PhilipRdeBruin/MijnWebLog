@@ -10,6 +10,9 @@
         WHERE b.id = br.bericht_id AND r.rubr_id = br.rubriek_id AND b.auteur_id = g.gebr_id $filterstring $zoekstring
         ORDER BY b.id DESC;";
 
+//    echo "sql = $sql";
+//    die();
+
     $result = $conn->query($sql);
 
     $aantalregels = 0;
