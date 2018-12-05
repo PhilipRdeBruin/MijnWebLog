@@ -10,6 +10,9 @@
             $nav[0][0] = 'auitlog'; $nav[1][0] = 'uitloggen.php'; $nav[2][0] = 'Uitloggen';
             $nav[0][1] = 'aplaatsen'; $nav[1][1] = 'plaatsen.php';
             $nav[2][1] = 'Bericht<span class="grey">_</span>plaatsen';
+//            if ($admin = "admin") {
+//                $nav[3][0] = 'Admin'; $nav[3][1] = 'admin.php';
+//            }
         }
         break;
     case 'inlog':

@@ -21,6 +21,7 @@
 			phpAlert ($msgstr);
 			$_SESSION['gebruikerid'] = $gebruikerid;
 			$_SESSION['naam'] = $ilnaam;
+			$_SESSION['admin'] = $admin;
 			phpRedirect('index.php');
 		} else {
 			$msgstr = schrijfstring ("Je hebt een verkeerd wachtwoord ingevuld.|| ||Probeer het opnieuw...");

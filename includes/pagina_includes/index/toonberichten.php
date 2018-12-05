@@ -2,6 +2,9 @@
 <div class="berichten">
 
 <?php
+
+//    $cid = ispost("commid");
+//    phpAlert ("deleteknop ($cid) ingedrukt");
     $filterstring = "";
 //    if (isset($_POST['filterresetknop'])) {
 //        if (isset ($_SESSION['filterknop'])) {
@@ -12,6 +15,11 @@
 //    }
 
 //    phpAlert ("zoektermen = $zoektermen");
+
+    if ($admin == "admin") {
+        $cid = ispost("commid");
+        if ($cid != "") { deletecommentaar($cid); }
+    }
 
     $zoekstring = "";
     if ($zoektermen != "" && $zoekreset == "") {

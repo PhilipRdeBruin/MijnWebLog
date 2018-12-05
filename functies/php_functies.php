@@ -128,6 +128,15 @@
         return $bww;
     }
 
+    function deletecommentaar ($cid) {
+        $conn = dbconnect ("sqli");
+        $sql = "UPDATE commentaar SET status_comm = 'verwijderd' WHERE comment_id = '$cid';";
+//        echo "$sql";
+//        die();
+        $conn->query($sql);
+        dbdisconnect ("sqli", $conn);
+    }
+
     function extractverhaal ($id) {
         $ix = str_pad($id, 4, '0', STR_PAD_LEFT);
         $berichtenbestand = "bericht_" . $ix . ".txt";
@@ -237,7 +246,7 @@
     }
 
     function zoekgebruiker_met_email ($email) {
-        global $gebruikerid, $voornaam, $init, $tussenv, $achternaam, $inlognaam, $wwinlog;
+        global $gebruikerid, $voornaam, $init, $tussenv, $achternaam, $inlognaam, $wwinlog, $admin;
 
         $conn = dbconnect ("sqli");
         $sql = "SELECT * FROM gebruikers WHERE email = '$email';";
@@ -251,6 +260,7 @@
             $achternaam = trim($row["achternaam"]);
             $inlognaam = $voornaam . $init . $tussenv . $achternaam;
             $wwinlog = trim($row["wachtwoord"]);
+            $admin = $row["gebr_rechten"];
         } else {
             $bfound = false;
         }
@@ -260,7 +270,7 @@
     }
 
     function zoekgebruiker_met_naam ($naam) {
-        global $gebruikerid, $voornaam, $init, $tussenv, $achternaam, $inlognaam, $wwinlog;
+        global $gebruikerid, $voornaam, $init, $tussenv, $achternaam, $inlognaam, $wwinlog, $admin;
 
         $conn = dbconnect ("sqli");
         $sql = "SELECT * FROM gebruikers;";
@@ -274,6 +284,7 @@
                 if (trim($row["tussenv"]) != "") { $tussenv = trim($row["tussenv"]) . " "; } else { $tussenv = ""; }
                 $achternaam = trim($row["achternaam"]);
                 $inlognaam = $voornaam . $init . $tussenv . $achternaam;
+                $admin = $row["gebr_rechten"];
                 if (trim($inlognaam) == trim($naam)) {
                     $wwinlog = trim($row["wachtwoord"]);
                     break;

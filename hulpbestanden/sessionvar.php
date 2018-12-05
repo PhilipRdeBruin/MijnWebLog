@@ -7,6 +7,7 @@
 		if ($_SESSION['naam'] != "") {
 			$gebruikerid = $_SESSION['gebruikerid'];
 			$naam = trim($_SESSION['naam']);
+			$admin = issessie('admin');
 		}
 	}
 

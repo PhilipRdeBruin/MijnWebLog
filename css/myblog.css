@@ -237,7 +237,7 @@ nav a {
 	border-radius	: 5px;
 }
 
-.berknoppen:hover {
+.berknoppen:hover, .delete:hover {
 /*	text-decoration	:  strong;  */
 	background		: #ffdd3b;
 	background		: -moz-linear-gradient(#ffbe59, #ffecc6);
@@ -309,6 +309,22 @@ nav a {
 	padding			: 2px 20px 2px 10px;
 	border			: 1px solid #ccc;
 	border-radius	: 0px 0px 10px 10px;
+}
+
+.delete {
+	font-size		: 14px;
+	color			: #fbb;
+	background		: -moz-linear-gradient(#f44, #900);
+	background		: -webkit-linear-gradient(#f44, #900);
+	background		: -ms-linear-gradient(#f44, #900);
+	background		: -o-linear-gradient(#f44, #900);
+	border			: 1px #c96 solid;
+	border-radius	: 5px;
+	cursor			: pointer;
+}
+
+.delete:hover {
+	color			: #f00;
 }
 
 /* Style the aside elements */

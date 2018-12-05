@@ -1,5 +1,8 @@
 
 <?php
+
+//    phpAlert ("admin = $admin");
+
     for ($i = 1; $i<=$aantalregels; $i++) {
         $j = $i - 1;
 //        $ix = str_pad($id[$j], 4, '0', STR_PAD_LEFT);
@@ -40,22 +43,32 @@
 
 
         $conn = dbconnect("sqli");
-        $sql = "SELECT c.anoniem, c.commentaar, c.commentgeplaatst, g.voornaam, g.tussenv, g.achternaam
+        $sql = "SELECT c.comment_id, c.anoniem, c.commentaar, c.commentgeplaatst,
+                       c.status_comm, g.voornaam, g.tussenv, g.achternaam
                 FROM commentaar c
                 INNER JOIN gebruikers g ON c.commentator_id = g.gebr_id
-                WHERE c.bericht_id = '$id[$j]' ORDER BY commentgeplaatst DESC;";
+                WHERE c.bericht_id = '$id[$j]' AND c.status_comm != 'verwijderd' ORDER BY commentgeplaatst DESC;";
 
         $result = $conn->query($sql);
         foreach ($result as $row) {
+            $cid = $row['comment_id'];
             $anoniem = $row['anoniem'];
             $tv = ($row['tussenv'] != "") ? " " . $row['tussenv'] : "";
             $commentator = $row['voornaam'] . $tv . " " . $row['achternaam'];
-            $commentator = ($anoniem == 1) ? "<i>anoniem</>" : $commentator; 
+            $commentator = ($anoniem == 1) ? "<i>anoniem</>" : $commentator;
             $commentaar = $row['commentaar'];
             $tijd = $row['commentgeplaatst'];
 
             echo "<tr><td id='commentrij1' colspan='2'>commentaar van: $commentator   <i>($tijd)</i></td></tr>";
-            echo "<tr><td id='commentrij2' colspan='2'>$commentaar</td></tr>";
+            echo "<tr>";
+            echo "<td id='commentrij2' colspan='2'>$commentaar</td>";
+            if ($admin == "admin") {
+                echo "<form id='commentdelete' action='#' method='post'>";
+                echo "<input type='hidden' name='commid' value='$cid'>";
+                echo "<td><button class='delete'><strong>x</strong></button></td>";
+                echo "</form>";
+            }
+            echo "</tr>";
 
         }
         dbdisconnect ("sqli", $conn);
