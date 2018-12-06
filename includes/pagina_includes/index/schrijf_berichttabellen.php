@@ -2,7 +2,7 @@
 <?php
 
 //    phpAlert ("admin = $admin");
-
+    $ncommin = 0;
     for ($i = 1; $i<=$aantalregels; $i++) {
         $j = $i - 1;
 //        $ix = str_pad($id[$j], 4, '0', STR_PAD_LEFT);
@@ -16,7 +16,11 @@
 
         echo '<table id="berichtentabel">';
         echo '    <tr id="btblrij1">';
-        echo '        <td class="btblrij1" width="25%">' . $nmkort[$j] . '</td><td class="btblrij1" width="75%">' . $ondw[$j] . '</td>';
+        $argprof = ($profielnaam != "") ? $profielnaam : "'y'";
+        $argstring = $argprof . ', ' . $auteurid[$j] . ', \'' . $nmkort[$j] . '\'';
+//        echo "argstring = $argstring<br/>";
+        echo '        <td class="btblcel1" id="auteurnaam"' . $auteurid[$j] . ' width="25%" onmouseup="naarprofiel (' . $argprof . ', ' . $auteurid[$j] . ', \'' . $nmkort[$j] . '\')" >' . $nmkort[$j] . '</td><td class="btblrij1" width="75%">' . $ondw[$j] . '</td>';
+//        echo '        <td class="btblcel1" onmouseup="naarprofiel()">auteur</td>';
         echo '    </tr>';
         echo '    <tr>';
         echo '        <td id="btblcelx"><i>rubriek:</i>  ' . $rubr[$j] . '</td><td id="btblcelb" rowspan="1">' . $verhaal[$j] . '</td>';
@@ -51,6 +55,7 @@
 
         $result = $conn->query($sql);
         foreach ($result as $row) {
+            $ncommin++;
             $cid = $row['comment_id'];
             $anoniem = $row['anoniem'];
             $tv = ($row['tussenv'] != "") ? " " . $row['tussenv'] : "";
@@ -75,4 +80,8 @@
 
         echo '</table>';
     }
+//    if ($profielnaam != "") {
+//        phpAlert ("profielnaam, aantalregels, ncommin: $profielnaam, $aantalregels, $ncommin");
+//        insert_statistieken();
+//    }
 ?>

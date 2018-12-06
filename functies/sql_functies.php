@@ -1,6 +1,75 @@
 
 <?php
 
+    function fetch_aantalcomments ($id) {
+        $conn = dbconnect("sqli");
+        $sql = "SELECT COUNT(*) FROM commentaar WHERE commentator_id = '$id';";
+//        echo "$sql";
+//        die();
+        $result = $conn->query($sql);
+        $row = $result->fetch_array();
+        $uit = $row[0];
+//        phpAlert ("result = $uit");
+        dbdisconnect("sqli", $conn);
+
+        return $row[0];
+    }
+
+    function fetch_regdatum ($id) {
+        $conn = dbconnect("sqli");
+        $sql = "SELECT redatum FROM gebruikers WHERE gebr_id = '$id';";
+//        echo "$sql";
+//        die();
+        $result = $conn->query($sql);
+        $row = $result->fetch_array();
+        $uit = $row[0]['regdatum'];
+//        phpAlert ("result = $uit");
+        dbdisconnect("sqli", $conn);
+
+        return $row[0]['regdatum'];
+    }
+
+    function naam_from_id ($id) {
+        $conn = dbconnect("sqli");
+        $sql = "SELECT * FROM gebruikers WHERE gebr_id = '$id';";
+        $result = $conn->query($sql);
+        $row = $result->fetch_array();
+        if ($row != null) {
+            $tv = ($row['tussenv'] != "") ? " " . $row['tussenv'] : "";
+            $naam = $row['voornaam'] . $tv . " " . $row['achternaam'];
+//            phpAlert ("voornaam = $naam");
+        }
+        dbdisconnect ("sqli", $conn);
+
+        return $naam;
+    }
+
+    function update_laatste_activiteit ($gebr) {
+        $tijd = date("Y-m-d H:i:s", time());
+        $conn = dbconnect("sqli");
+        $sql = "UPDATE gebruikers SET laatste_act = '$tijd' WHERE gebr_id = '$gebr';;";
+        $conn->query($sql);
+        dbdisconnect ("sqli", $conn);
+    }
+
+    function update_laatste_login ($gebr) {
+        update_laatste_loginuit ("login", $gebr);
+    }
+
+    function update_laatste_loguit ($gebr) {
+        update_laatste_loginuit ("loguit", $gebr);
+    }
+
+    function update_laatste_loginuit ($type, $gebr) {
+        $xtijd = ($type == "login") ? time() + 1000000 : time();
+        $tijd = date("Y-m-d H:i:s", $xtijd);
+//        phpAlert ("xtijd = $xtijd");
+        $conn = dbconnect("sqli");
+        $sql = "UPDATE gebruikers SET laatste_login = '$tijd' WHERE gebr_id = '$gebr';;";
+        $conn->query($sql);
+        dbdisconnect ("sqli", $conn);
+    }
+
     function zoek_delete_of_update () {
         $conn = dbconnect("sqli");
 //        $sql = "SELECT * FROM berichten2 ORDER BY id DESC;";

@@ -16,6 +16,7 @@
 			$msgstr = schrijfstring ("Je bent niet bekend in ons systeem.|| ||Maak eerst een account aan.");
 			phpAlert ($msgstr);
 		} elseif ($wachtwoord === $wwinlog) {
+			update_laatste_login ($gebruikerid);
 			$ilnaam = $voornaam . $tussenv . $achternaam;
 			$msgstr = schrijfstring ("Welkom terug $ilnaam,||je bent nu inglogd.");
 			phpAlert ($msgstr);

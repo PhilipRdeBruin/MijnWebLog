@@ -55,11 +55,12 @@
 //        die();
 
         $conn->query($sql);
-        dbdisconnect ("sqli", $conn);    }
-
+        dbdisconnect ("sqli", $conn);
+    }
 //    $filenaam = "bericht_" . $ix . ".txt";
 //    $inhoud = $tijd . "\n" . $naam . "\n" . $onderwerp . "\n" . $rubriek . "\n" . $bericht;
 //    schrijfbestand ("w", $filenaam, $inhoud, "berichten");
+    update_laatste_activiteit($gebruikerid);
     phpRedirect ("index.php");
 
 ?>

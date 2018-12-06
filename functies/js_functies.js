@@ -1,4 +1,20 @@
 
+//$("document").ready(function() {
+//
+//}
+
+function naarprofiel(profiel, autid, auteur) {
+//    alert ("hallo " + auteur + "!  Jouw id = " + autid);
+    if (profiel == "y") {
+        adr = window.location.href;
+        pqm = adr.search ("\\?");
+        if (pqm >= 0) { teken = "&";} else { teken = "?"; }
+        adr = adr + teken + "profiel=" + autid;
+//      alert ("adr = " + adr);
+        window.location.href = adr;
+    }
+}
+
 function shuffleword(word) {
     var shuffledword = '';
     word = word.split('');

@@ -299,4 +299,42 @@
         return $bfound;
     }
 
+    function schrijf_profieldata($id) {
+        $conn = dbconnect("sqli");
+        $sql = "SELECT regdatum, laatste_act, laatste_login
+                FROM gebruikers WHERE gebr_id = '$id';";
+//        echo "$sql";
+//        die();
+        $result = $conn->query($sql);
+        $row = $result->fetch_array();
+        $regdatum = $row['regdatum'];
+        $lastact = $row['laatste_act'];
+        $lastlogin = $row['laatste_login'];
+//        phpAlert ("result = $uit");
+        dbdisconnect("sqli", $conn);
+        $regdatum = date_create($regdatum);
+        $regdatum = date_format($regdatum, "Y-m-d");
+        if ($lastact != 0) {
+            $lastact = date_create($lastact);
+            $lastact = date_format($lastact, "Y-m-d H:m");
+        } else {
+            $lastact = "&nbsp;";
+        }
+        $lastlogin = date_create($lastlogin);
+        $tijd = date("Y-m-d H:i:s", time());
+        $nu = date_create($tijd);
+
+//        $t1 = date_format($lastlogin, "Y-m-d H:i:s");
+//        $t2 = date_format($nu, "Y-m-d H:i:s");
+//        $msgstr = "lastlogin, tijd: $t1, $t2";
+//        phpAlert ($msgstr);
+
+        $loginstatus = ($lastlogin > $nu) ? "Nu ingelogd..." : date_format($lastlogin, "Y-m-d H:m");
+
+
+        echo "<p><b>lid sinds:</b></p><p class='profieldata0'>$regdatum</p>";
+        echo "<p><b>laatste activiteit:</b></p><p class='profieldata0'>$lastact</p>";
+        echo "<p><b>laatste inlog-datum:</b></p><p class='profieldata0'>$loginstatus</p>";
+    }
+
 ?>

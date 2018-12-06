@@ -2,12 +2,13 @@
 <table id="overzichtstabel">
 
 <?php
+    $profielstring = ($profiel != "") ? " AND b.auteur_id = '$profiel'" : "";
     $conn = dbconnect("sqli");
 //    $sql = "SELECT * FROM berichten $filterstring ORDER BY $sortkey $sortdir;";
 //    $sql = "SELECT * FROM berichten b INNER JOIN rubrieken r ON b.rubriek_id = r.rubr_id $filterstring ORDER BY $sortkey $sortdir;";
-    $sql = "SELECT b.id, b.onderwerp, g.achternaam, g.initiaal, g.tussenv, g.voornaam, r.rubriek_naam, b.geplaatst, b.gewijzigd, b.verhaal
+    $sql = "SELECT b.id, b.onderwerp, b.auteur_id, g.achternaam, g.initiaal, g.tussenv, g.voornaam, r.rubriek_naam, b.geplaatst, b.gewijzigd, b.verhaal
         FROM berichten2 b, rubrieken r, berichten2_rubrieken br, gebruikers g
-        WHERE b.id = br.bericht_id AND r.rubr_id = br.rubriek_id AND b.auteur_id = g.gebr_id $filterstring $zoekstring
+        WHERE b.id = br.bericht_id AND r.rubr_id = br.rubriek_id AND b.auteur_id = g.gebr_id $filterstring $zoekstring $profielstring
         ORDER BY b.id DESC;";
 
 //    echo "sql = $sql";
@@ -26,6 +27,7 @@
             $nm[$i] = trim ($row["voornaam"] . $initiaal . $tussenv . " " . $row["achternaam"]);
             $nmkort[$i] = trim ($row["voornaam"] . $tussenv . " " . $row["achternaam"]);
             $ondw[$i] = $row["onderwerp"];
+            $auteurid[$i] = $row['auteur_id'];
             $rubr[$i] = str_ireplace("_", " ", $row["rubriek_naam"]);
             $verhaal[$i] = $row['verhaal'];
             $td[$i] = $row["geplaatst"]; $tdupd[$i] = $row["gewijzigd"];

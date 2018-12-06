@@ -5,7 +5,20 @@
 	<?php include 'includes/pagina_includes/algemeen/head.php'; ?>
 
 	<body>
-		<header><h2>Mijn WebLog</h2></header>
+
+<?php
+	if (isget('profiel') != "") {
+		$profiel = $_GET['profiel'];
+		$profielnaam = naam_from_id ($profiel);
+//		phpAlert ("profielnaam = $profielnaam");
+		$titel = "Profielpagina van $profielnaam";
+	} else {
+		$profielnaam = "";
+		$titel = "Mijn Weblog";
+	}
+ ?>
+
+		<header><h2><?php echo $titel; ?></h2></header>
 
 		<section>
 		<?php

@@ -81,6 +81,8 @@
     }
 
     zoek_delete_of_update();    // in sql_functies.php
+
+//    if ($profielnaam != "") { include 'includes/pagina_includes/profiel/toonstatistieken.php';}
 ?>
 
     <div class="overzichtheader">

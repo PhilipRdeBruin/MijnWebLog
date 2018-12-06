@@ -35,6 +35,10 @@
 	color	: #ddd;
 }
 
+.white {
+	color	: white;
+}
+
 .px12 {
 	font-size	: 12px;
 }
@@ -55,6 +59,10 @@
 
 #aplaatsen {
 	padding	: 2px 10px 2px 10px;
+}
+
+#aprofiel {
+	/* */
 }
 
 #auitlog {
@@ -152,7 +160,7 @@ nav a {
 	background	: #999;
 }
 
-#standaarknoppen {
+#standaardknoppen {
 	min-height	: 150px;
 }
 
@@ -264,8 +272,18 @@ nav a {
 	background	: #aaa;
 }
 
-.btblrij1 {
+.btblrij1, .btblcel1 {
 	padding		: 3px 20px 3px 10px;
+}
+
+.btblcel1:hover {
+	color		: blue;
+	background		: -moz-linear-gradient(#ffbe59, #ffecc6);
+	background		: -webkit-linear-gradient(#ffbe59, #ffecc6);
+	background		: -ms-linear-gradient(#ffbe59, #ffecc6);
+	background		: -o-linear-gradient(#ffbe59, #ffecc6);
+/*	border			: 1px #ffbe59 solid; */
+	cursor		: pointer;
 }
 
 #btblrijz {
@@ -337,6 +355,60 @@ aside img {
 aside p {
 	text-align		: justify;
 	padding-right	: 20px;
+}
+
+#profielfoto, #profielinfo {
+	float	: left;
+}
+
+#profielfoto {
+	width			: 150px;
+	height			: 180px;
+	padding			: 20px 15px 0px 15px;
+	border			: 1px solid #eee;
+}
+
+#profielfoto img {
+	width			: 120px;
+	height			: auto;
+}
+
+#profielinfo {
+	padding-left	: 25px;
+}
+
+.profieldata0 {
+	margin-top		: -5px;
+	padding			: 2px 10px 2px 10px;
+	background		: #f8f8f8;
+	border			: 1px solid #ddd;
+}
+
+#profielstatistieken {
+	clear			: left;
+	display			: block;
+	margin-top		: 25px;
+	padding-left	: 15px;
+}
+
+.profiellabels {
+	width		: 85%;
+}
+
+.profieldata {
+	width		: 45px;
+	padding		: 2px 10px 2px 10px;
+	text-align	: right;
+	color		: blue;
+	background	: white;
+	border		: 1px solid #bbb;
+}
+
+#profielextrainfo {
+	padding		: 0px 5px 5px 20px;
+	background	: #f4f4f4;
+	border		: 1px solid #ddd;
+	text-align	: justify;
 }
 
 /* Style the footer elements */

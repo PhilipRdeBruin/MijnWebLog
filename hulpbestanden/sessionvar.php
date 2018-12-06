@@ -2,15 +2,17 @@
 <?php
 
 //	$naam = issessie('naam');
-	$naam = "";
+//	$naam = "";
 	if (isset($_SESSION['naam'])) {
 		if ($_SESSION['naam'] != "") {
 			$gebruikerid = $_SESSION['gebruikerid'];
 			$naam = trim($_SESSION['naam']);
 			$admin = issessie('admin');
 		}
+	} else {
+		$naam = ""; $admin = "";
 	}
-
+//	phpAlert ("site = $site");
 	switch ($site) {
 	case 'index':
 		unset ($_SESSION['update']);
@@ -23,7 +25,8 @@
 	    $dirtijd = issessie ('geplaatst');
 		$zoektermen = ispost ('zoekterm');
 		$zoekreset = ispost('zoekreset');
-//		phpalert ("zoekreset = $zoekreset");
+		$profiel = isget('profiel');
+//		phpAlert ("profiel = $profiel");
 	    $arubr = "&#9650;"; $aschr = "&#9650;";
 		$aondw = "&#9650;"; $atijd = "&#9660;";
 		$hrubr = "black"; $hschr = "black";
@@ -47,6 +50,24 @@
 			$onderwerp = issessie('onderwerp');
 			$rubriek = issessie('rubriek');
 		}
+		break;
+	case 'profiel':
+		unset ($_SESSION['update']);
+		unset ($_SESSION['commentaar']);
+		unset ($_GET['profiel']);
+		$sortkey = issessie ('sortkey');
+		$sortdir = issessie ('sortdir');
+		$dirrubr = issessie ('rubriek');
+		$dirschr = issessie ('auteur');
+		$dirondw = issessie ('onderwerp');
+		$dirtijd = issessie ('geplaatst');
+		$zoektermen = ispost ('zoekterm');
+		$zoekreset = ispost('zoekreset');
+	//		phpalert ("zoekreset = $zoekreset");
+		$arubr = "&#9650;"; $aschr = "&#9650;";
+		$aondw = "&#9650;"; $atijd = "&#9660;";
+		$hrubr = "black"; $hschr = "black";
+		$hondw = "black"; $htijd = "black";
 	}
 
 ?>
