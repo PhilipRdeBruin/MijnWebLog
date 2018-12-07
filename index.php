@@ -18,7 +18,7 @@
 	}
  ?>
 
-		<header><h2><?php echo $titel; ?></h2></header>
+		<header><h2 id="titel"><?php echo $titel; ?></h2></header>
 
 		<section>
 		<?php

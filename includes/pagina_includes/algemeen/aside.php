@@ -43,7 +43,7 @@
                             <tr><td class="profiellabels">aantal keer commentaar gegeven:</td>
                             <td class="profieldata"><?php echo $ncommuit; ?></td></tr>
                             <tr><td>&nbsp;</td></tr>
-                            <tr><td class="profiellabels">Aantal comments op eigen berichten:</td>
+                            <tr><td class="profiellabels">aantal comments op eigen berichten:</td>
                             <td class="profieldata"><?php echo $ncommin; ?></td></tr>
                         </table>
                     </div>

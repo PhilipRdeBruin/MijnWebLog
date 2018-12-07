@@ -47,6 +47,9 @@ function set_filterdata(i) {
     selrubriekuit.value = selrubriekin.value;
 }
 
+//function tiepen () {
+//    alert ("Hallo!");
+//}
 
 //$(function() {
 //	$("#zoekreset").click(function() {
@@ -94,3 +97,64 @@ $(function() {
 //        window.location.href = "index.php";
 	});
 });
+
+$(function() {
+	$("#bericht").keyup(function() {
+        afk = document.getElementById('afkortingen').value;
+        tekst = document.getElementById('bericht').value;
+
+        len = tekst.length;
+        for (i = 5; i >= 2; i--) {
+            if (len >= i) {
+                b = decodeer_afk(afk, tekst, i);
+                if (b == true) { break; }
+//            p3 = afk.search (l3);
+//            if (p3 > 0) {
+//                rechts = afk.substr (p3 + 4);
+//                q1 = rechts.search (",");
+//                woord = rechts.substr (0, q1);
+//                links = tekst.substr (0, len - 3);
+//                tekst = links + woord;
+//                document.getElementById('bericht').value = tekst;
+//            }
+            }
+        }
+	});
+});
+
+function decodeer_afk (afk, tekst, i) {
+    b = false;
+    len = tekst.length;
+    lx = tekst.substr (len - i, i);
+    pos = afk.search (lx);
+    if (pos > 0) {
+        dp0 = afk.substr (pos - 1, 1);
+        dp1 = afk.substr (pos + i, 1);
+//        alert ("dp = " + dp);
+    }
+//    alert ("i, len, lx, pos: " + i + ", " + len + ", " + lx + ", " + pos + ", ");
+    if (pos > 0 && dp0 == ":" && dp1 == ":") {
+        rechts = afk.substr (pos + i + 1);
+        q1 = rechts.search (",");
+        woord = rechts.substr (0, q1);
+        links = tekst.substr (0, len - i);
+        tekst = links + woord;
+        document.getElementById('bericht').value = tekst;
+    }
+    return b;
+}
+
+
+//$(function() {
+//	$(".btblcel1").hover(function() {
+//        profiel = document.getElementById('titel').innerHTML;
+//        alert (profiel.substr (0, 13));
+//        if (profiel.substr (0, 13) == "Profielpagina") {
+//            alert ("profiel = profielpagina");
+//            $(this).removeClass ("btblcel1");
+//        } else {
+//            alert ("profiel != profielpagina");
+//            $(this).addClass ("btblcel1");
+//        }
+//	});
+//});

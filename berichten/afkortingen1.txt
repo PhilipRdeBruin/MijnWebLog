@@ -1,0 +1,13 @@
+:aaa:aaa,
+:CG:CodeGorilla,
+:Gn:Groningen,
+:Lwd:Leeuwarden,
+:NL:Nederland,
+:Frl:Friesland,
+:Eur:Europa,
+:Ams:Amsterdam,
+:NY:New York,
+:Eng:Engeland,
+:db:database,
+:comp:computer,
+:zzz:zzz
